@@ -1,0 +1,146 @@
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:key="screenMain">
+
+    <!-- Configuraciones de Cuenta -->
+    <androidx.preference.PreferenceCategory
+        android:title="Configuraciones de Cuenta"
+        android:key="category_account"
+        android:iconSpaceReserved="false">
+
+        <androidx.preference.CheckBoxPreference
+            android:key="userorhwid"
+            android:title="Modo cuenta"
+            android:summary="Activar si dispones de un Usuario y Contraseña."
+            android:defaultValue="false"
+            android:iconSpaceReserved="false" />
+
+        <https.socks.android.view.SummaryEditTextPreference
+            android:key="userlogin"
+            android:title="Usuario"
+            android:summary="Ingresa un usuario."
+            android:dialogMessage="Ingresa tu nombre de usuario"
+            android:singleLine="true"
+            android:dependency="userorhwid"
+            android:iconSpaceReserved="false" />
+
+        <https.socks.android.view.SummaryEditTextPreference
+            android:key="passwlogin"
+            android:title="Contraseña"
+            android:summary="Ingresa una contraseña."
+            android:dialogMessage="Ingresa tu contraseña"
+            android:singleLine="true"
+            android:password="true"
+            android:dependency="userorhwid"
+            android:iconSpaceReserved="false" />
+    </androidx.preference.PreferenceCategory>
+
+    <!-- Configuraciones de Conexión -->
+    <androidx.preference.PreferenceCategory
+        android:title="Configuraciones de Conexión"
+        android:key="category_connection"
+        android:iconSpaceReserved="false">
+
+        <androidx.preference.CheckBoxPreference
+            android:key="data_compression"
+            android:title="Compresión de Datos"
+            android:summary="Comprime y acelera la transferencia de datos para archivos que pueden ser comprimidos. NO recomendado para dispositivos con poca memoria."
+            android:defaultValue="true"
+            android:iconSpaceReserved="false" />
+        
+        <androidx.preference.CheckBoxPreference
+            android:key="udpForward"
+            android:title="@string/title_forward_udp"
+            android:summary="@string/summary_forward_udp"
+            android:defaultValue="false"
+            android:iconSpaceReserved="false" />
+
+        <https.socks.android.view.SummaryEditTextPreference
+            android:key="udpResolver"
+            android:title="@string/title_resolver_udp"
+            android:summary="@string/summary_resolver_udp"
+            android:dialogMessage="Ingresa el servidor UDP resolver"
+            android:singleLine="true"
+            android:dependency="udpForward"
+            android:iconSpaceReserved="false" />
+    </androidx.preference.PreferenceCategory>
+    
+    <!-- Configuraciones DNS -->
+    <androidx.preference.PreferenceCategory
+        android:title="@string/category_forward_dns"
+        android:key="category_dns"
+        android:iconSpaceReserved="false">
+        
+        <androidx.preference.CheckBoxPreference
+            android:key="dnsForward"
+            android:title="@string/title_forward_dns"
+            android:summary="@string/summary_forward_dns"
+            android:defaultValue="false"
+            android:iconSpaceReserved="false" />
+        
+        <https.socks.android.view.SummaryEditTextPreference
+            android:key="dnsResolver1"
+            android:title="@string/title_dns_primary"
+            android:summary="@string/summary_dns_primary"
+            android:dialogMessage="@string/dialog_message_dns_primary"
+            android:singleLine="true"
+            android:dependency="dnsForward"
+            android:iconSpaceReserved="false" />
+
+        <https.socks.android.view.SummaryEditTextPreference
+            android:key="dnsResolver2"
+            android:title="DNS Secundario"
+            android:summary="Patrón (8.8.4.4)"
+            android:dialogMessage="@string/dialog_message_dns_primary"
+            android:singleLine="true"
+            android:dependency="dnsForward"
+            android:iconSpaceReserved="false" />
+    </androidx.preference.PreferenceCategory>
+    
+    <!-- Configuraciones Adicionales -->
+    <androidx.preference.PreferenceCategory
+        android:title="@string/category_settings_adicionais"
+        android:key="category_additional"
+        android:iconSpaceReserved="false">
+        
+        <https.socks.android.view.SummaryEditTextPreference
+            android:key="pingerSSH"
+            android:title="@string/title_ping_time"
+            android:summary="@string/no_value"
+            android:maxLength="3"
+            android:inputType="number"
+            android:singleLine="true"
+            android:iconSpaceReserved="false" />
+        
+        <androidx.preference.CheckBoxPreference
+            android:key="autoClearLogs"
+            android:title="@string/title_auto_clear_log"
+            android:summary="@string/summary_auto_clear_log"
+            android:defaultValue="false"
+            android:iconSpaceReserved="false" />
+
+        <androidx.preference.CheckBoxPreference
+            android:key="hideLog"
+            android:title="@string/title_hide_log"
+            android:summary="@string/summary_hide_log"
+            android:defaultValue="false"
+            android:iconSpaceReserved="false" />
+    </androidx.preference.PreferenceCategory>
+    
+    <!-- Interfaz de Usuario -->
+    <androidx.preference.PreferenceCategory
+        android:title="@string/category_user_interface"
+        android:key="category_ui"
+        android:iconSpaceReserved="false">
+    
+        <androidx.preference.ListPreference
+            android:key="idioma"
+            android:title="@string/title_language"
+            android:defaultValue="default"
+            android:entries="@array/pref_idioma_option_labels"
+            android:entryValues="@array/pref_idioma_option_values"
+            android:summary="%s"
+            android:iconSpaceReserved="false" />
+    </androidx.preference.PreferenceCategory>
+</androidx.preference.PreferenceScreen>

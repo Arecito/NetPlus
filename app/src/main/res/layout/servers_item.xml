@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by JuancitoOficial VPN on 27/01/24 22:59
+  ~  Copyright (c) Telegram: @𝕵𝖚𝖆𝖓𝖈𝖎𝖙𝖔 ᵒᶠᶜ🌹1 . All rights reserved.
+  -->
+<androidx.cardview.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="#efefef"
+    app:cardCornerRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/servers_image"
+            android:layout_height="35dp"
+            android:layout_width="40dp"
+            android:layout_marginStart="7dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            android:id="@+id/servers_name"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:textSize="12sp"
+            android:layout_marginStart="10dp"
+            android:textColor="#ff000000"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/servers_image"
+            app:layout_constraintTop_toTopOf="@id/servers_image"
+            app:layout_constraintEnd_toStartOf="@id/connection_icon"
+            app:layout_constraintBottom_toTopOf="@id/servers_info"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Servidor Premium" />
+
+        <TextView
+            android:id="@+id/servers_info"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:textSize="9sp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/servers_image"
+            app:layout_constraintTop_toBottomOf="@id/servers_name"
+            app:layout_constraintEnd_toStartOf="@id/connection_icon"
+            app:layout_constraintBottom_toBottomOf="@id/servers_image"
+            tools:text="Estados Unidos - 120ms" />
+
+        <ImageView
+            android:id="@+id/connection_icon"
+            android:layout_height="25dp"
+            android:layout_width="25dp"
+            android:src="@drawable/cnt"
+            app:tint="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/splash"
+    android:layout_gravity="center"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent">
+    
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        
+        <LinearLayout
+            android:gravity="center"
+            android:id="@+id/neth"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+            
+            <LinearLayout
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+                
+                <ImageView
+                    android:background="@drawable/icon"
+                    android:id="@+id/splash"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="100dp"/>
+                
+            
+            </LinearLayout>
+            
+        
+        </LinearLayout>
+        
+    
+    </LinearLayout>
+    
+    <TextView
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="0dp"
+        android:layout_width="match_parent"
+        android:text="Agradece por la aplicacion"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="#FFFFFFFF"
+        android:textSize="15.0sp"
+        android:textStyle="bold"/>
+    
+
+</RelativeLayout>

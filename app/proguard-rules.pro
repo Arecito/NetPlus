@@ -1,0 +1,19 @@
+-optimizationpasses 5
+-repackageclasses
+-ignorewarnings
+-dontnote
+-dontwarn
+-keepattributes
+-dontshrink
+-adaptresourcefilenames    **.properties,**.xml,**.png
+-adaptresourcefilecontents **.properties,META-INF/MANIFEST.MF
+-allowaccessmodification
+-keep class me.** { *; }
+-keep class com.** { *; }
+-keep class net.** { *; }
+-keep class org.** { *; }
+-keep class android.** { *; }
+-dontwarn java.nio.file.Files
+-dontwarn java.nio.file.Path
+-dontwarn java.nio.file.OpenOption
+-dontwarn org.codehaus.mojo.a1nimal_sniffer.IgnoreJRERequirement

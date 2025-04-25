@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.netplus.vpn">
+    <!-- - Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+   <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:name="https.socks.android.SocksHttpApp"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:extractNativeLibs="true"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity
+            android:name="https.socks.android.activities.ServersActivity"
+            android:exported="false" />
+        <!-- - Activities -->
+        <activity
+            android:name="https.socks.android.LauncherActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/SplashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="https.socks.android.SocksHttpMainActivity"
+            android:exported="true"
+            android:label="@string/app_name" />
+        <activity
+            android:name="https.socks.android.CrashWindow"
+            android:exported="true"
+            android:label="Not good!" />
+               <activity android:name="https.socks.android.activities.SpeedTestActivity"
+                  android:parentActivityName="https.socks.android.activities.AboutActivity"
+                  android:label="Speed Test"/>
+        <activity
+            android:name="https.socks.android.activities.ConfigGeralActivity"
+            android:exported="true"
+            android:label="@string/settings"
+            android:parentActivityName="https.socks.android.SocksHttpMainActivity" />
+
+        <service android:name="https.socks.android.model.KeepAliveService" />
+
+        <activity
+            android:name="https.socks.android.activities.AboutActivity"
+            android:exported="true"
+            android:label="About"
+            android:parentActivityName="https.socks.android.SocksHttpMainActivity" />
+
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8548428070563900~1364530208" />
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" /> <!-- corrige bug em Android 9 -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name="com.slipkprojects.ultrasshservice.LaunchVpn"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:taskAffinity=".LaunchVPN"
+            android:theme="@style/AppThemeLogin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity> <!-- This is for ensuring the background service still runs when/if the app is swiped away -->
+        <activity
+            android:name="com.slipkprojects.ultrasshservice.util.DummyActivity"
+            android:allowTaskReparenting="true"
+            android:alwaysRetainTaskState="false"
+            android:clearTaskOnLaunch="true"
+            android:enabled="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:finishOnTaskLaunch="true"
+            android:noHistory="true"
+            android:stateNotNeeded="true"
+            android:theme="@android:style/Theme.Translucent" /> <!-- - Receivers -->
+        <receiver
+            android:name="com.slipkprojects.ultrasshservice.MainReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.slipkprojects.ultrasshservice.MainReceiver.ACTION_SERVICE_STOP" />
+                <action android:name="com.slipkprojects.ultrasshservice.MainReceiver.ACTION_SERVICE_RESTART" />
+            </intent-filter>
+        </receiver> <!-- - Services -->
+        <service
+            android:name="com.slipkprojects.ultrasshservice.tunnel.vpn.TunnelVpnService"
+            android:enabled="true"
+            android:exported="false"
+            android:label="VPN Service"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.slipkprojects.ultrasshservice.SocksHttpService"
+            android:exported="false"
+            android:label="VPN Service"
+            android:stopWithTask="false" />
+
+        <service
+            android:name="com.slipkprojects.ultrasshservice.tunnel.V2Proxy"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:process=":RunSoLibV2RayDaemon" />
+        
+       <service android:name="me.dawson.proxyserver.ui.ProxyService" /> 
+		<activity
+            android:name="me.dawson.proxyserver.ui.ProxySettings"
+            android:parentActivityName="https.socks.android.SocksHttpMainActivity"
+            android:label="@string/app_name" />
+        <service
+            android:name="com.slipkprojects.ultrasshservice.V2Service"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:process=":RunSoLibV2RayDaemon">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
+                android:value="true" />
+        </service>
+    </application>
+
+</manifest>

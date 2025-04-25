@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1c2029">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/main_container"
+        style="@style/Widget.Neumorph.Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        app:neumorph_shadowColorDark="#01070E"
+        app:neumorph_shadowColorLight="#99373737"
+        app:neumorph_shadowElevation="6dp"
+        app:neumorph_shapeType="basin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Title Section -->
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/title_container"
+                style="@style/Widget.Neumorph.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:neumorph_shadowColorDark="#01070E"
+                app:neumorph_shadowColorLight="#99373737"
+                app:neumorph_shadowElevation="6dp"
+                app:neumorph_shapeType="basin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heroesassemble2"
+                        android:text="Compartir"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heroesassemble2"
+                        android:text=" wi-fi"
+                        android:textColor="#FF147EFF"
+                        android:textSize="22sp" />
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <!-- WiFi Icon Section -->
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/wifi_icon_container"
+                style="@style/Widget.Neumorph.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:neumorph_shadowColorDark="#01070E"
+                app:neumorph_shadowColorLight="#99373737"
+                app:neumorph_shadowElevation="6dp"
+                app:neumorph_shapeType="basin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_container">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/wifioff"
+                        android:layout_width="118dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/nowifis" />
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/wifion"
+                        android:layout_width="118dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/siwifi"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <!-- Info Section -->
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/info_container"
+                style="@style/Widget.Neumorph.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="40dp"
+                app:neumorph_backgroundColor="#FF191C23"
+                app:neumorph_shadowColorDark="#01070e"
+                app:neumorph_shadowColorLight="#99373737"
+                app:neumorph_shadowElevation="6dp"
+                app:neumorph_shapeType="basin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wifi_icon_container">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <!-- Status Text -->
+                    <TextView
+                        android:id="@+id/tv_info"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/gris1"
+                        android:fontFamily="@font/good"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="El Wi-Fi Shared esta DESACTIVADO"
+                        android:textColor="#ffffffff"
+                        android:textSize="13sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Connection Info -->
+                    <LinearLayout
+                        android:id="@+id/connection_info"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/gris1"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_info">
+
+                        <!-- Host Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Host:"
+                                android:textColor="#FFFFFFFF"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/ip_layoutx"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:autoLink="web"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:text="esperando"
+                                android:textColor="#FF03E22A"
+                                android:textIsSelectable="true"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Proxy Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:text="Proxy:"
+                                android:textColor="#FFFFFFFF"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/textport"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:gravity="center_vertical"
+                                android:text="8080"
+                                android:textColor="#FF03E22A"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Toggle Button -->
+                    <ToggleButton
+                        android:id="@+id/cb_enable"
+                        android:layout_width="110dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/toogle_option"
+                        android:text="ToggleButton"
+                        android:textColor="#ffffffff"
+                        android:textOff="  "
+                        android:textOn="  "
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/connection_info" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <!-- Ad Banner -->
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/addsmew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="visible"
+                app:adSize="SMART_BANNER"
+                app:adUnitId="ca-app-pub-6604507907553035/1911"
+                app:layout_constraintTop_toBottomOf="@id/info_container" />
+
+            <!-- Hidden Buttons Section -->
+            <LinearLayout
+                android:id="@+id/buttons_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/gris1"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <Button
+                    android:id="@+id/restart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/gris1"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="Reiniciar Wi-Fi"
+                    android:textColor="#ffffffff"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="5dp" />
+
+                <Button
+                    android:id="@+id/zonawifi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/gris1"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="Activar anclaje"
+                    android:textColor="#ffffffff"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="5dp"
+                    app:rippleColor="#ff00bfa5" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </soup.neumorphism.NeumorphCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

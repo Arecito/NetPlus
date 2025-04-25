@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+              <item
+			android:id="@+id/hostshare"
+			android:icon="@drawable/ic_wifi"
+			android:title="Compartir internet"/>
+       <item
+        android:icon="@drawable/vpn"
+        android:id="@+id/vpn_activa"
+        android:title="VPN ACTIVA" />
+    </group>
+    <item
+        android:title="Tools">
+        <menu>
+            <group>
+               <item
+                    android:id="@+id/action_clear_data"
+                    android:title="Borrar Datos"
+                    android:icon="@android:drawable/ic_menu_delete"
+                    android:showAsAction="never" />
+               <item
+    android:id="@+id/action_clear_cache"
+    android:icon="@drawable/cache"
+    android:title="Reparar Netplus"/>
+               <item
+	            	android:id="@+id/speedtest"
+	            	android:icon="@drawable/ic_speedtest"
+	            	android:title="Prueba SpeedTest"/>
+				<item android:id="@+id/settings"
+					android:icon="@drawable/ic_settings"
+					android:title="Configuracion"/>
+				<item android:id="@+id/fb"
+					android:icon="@drawable/ic_facebook"
+					android:title="Chats"/>
+
+				<item android:id="@+id/feedback"
+					android:icon="@drawable/ic_bug_report_black_24dp"
+					android:title="Report Bug"/>
+				
+            </group>
+        </menu>
+    </item>
+</menu>
